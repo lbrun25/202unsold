@@ -8,20 +8,40 @@
 #ifndef INC_202UNSOLD_2019_ALGORITHM_HPP_
 #define INC_202UNSOLD_2019_ALGORITHM_HPP_
 
+#include <vector>
+#include <iostream>
+#include <iomanip>
+#include <numeric>
+
+#ifndef NB_DASHES_
+#define NB_DASHES 100
+#endif
+
+#ifndef PROBABILITY_
+#define INCREMENT_PRICE 10
+#define MAX_PRICE 50
+#define NB_PRICES 5
+#define PRECISION 3
+#endif
 
 class Unsold {
 
 private:
-    int _a;
-    int _b;
+    // Properties
+    int const _a;
+    int const _b;
+    std::vector<int> suitPrices;
 
+    // Methods
+    double computeProbability(int x, int y);
 
 public:
     // Life cycle
-    Unsold(int &a, int &b);
+    Unsold(int const &a, int const &b);
     ~Unsold();
 
     // Methods
+    void printProbability();
 
 };
 
