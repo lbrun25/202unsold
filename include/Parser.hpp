@@ -11,6 +11,7 @@
 #ifndef ARGS_ERROR_
 #define TOO_MANY_ARGS "There are too many arguments.\n"
 #define NOT_ENOUGH_ARGS "There are not enough arguments.\n"
+#define MUST_BE_GREATER_THAN_50 "Argument(s) must be greater than 50."
 #define CATCH_INVALID_ARGUMENTS "Catch 'invalid_argument'."
 #define CATCH_OUT_OF_RANGE "Catch 'out_of_range'."
 #endif
@@ -22,8 +23,8 @@ class Parser {
 private:
     int _argc;
     char **_argv;
-    double _a;
-    double _b;
+    int _a;
+    int _b;
 
     void printHelp();
 
@@ -38,8 +39,8 @@ public:
     bool check_argv();
 
     // Getters
-    double const &getA();
-    double const &getB();
+    int const &getA();
+    int const &getB();
 
 };
 

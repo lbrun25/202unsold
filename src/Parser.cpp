@@ -51,8 +51,12 @@ bool Parser::check_help_flag() {
 
 bool Parser::check_argv() {
     try {
-        this->_a = std::stod(this->_argv[1]);
-        this->_b = std::stod(this->_argv[2]);
+        this->_a = std::stoi(this->_argv[1]);
+        this->_b = std::stoi(this->_argv[2]);
+        if (this->_a <= 50 || this->_b <= 50) {
+            std::cerr << MUST_BE_GREATER_THAN_50 << std::endl;
+            return false;
+        }
     } catch (std::invalid_argument const &e) {
         std::cerr << CATCH_INVALID_ARGUMENTS << std::endl;
         return false;
@@ -65,11 +69,11 @@ bool Parser::check_argv() {
 
 // Getters
 
-double const& Parser::getA() {
+int const& Parser::getA() {
     return this->_a;
 }
 
-double const& Parser::getB() {
+int const& Parser::getB() {
     return this->_b;
 }
 

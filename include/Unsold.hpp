@@ -12,10 +12,13 @@
 class Unsold {
 
 private:
+    int _a;
+    int _b;
+
 
 public:
     // Life cycle
-    Unsold();
+    Unsold(int &a, int &b);
     ~Unsold();
 
     // Methods
