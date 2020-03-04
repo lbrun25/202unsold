@@ -77,11 +77,11 @@ void Unsold::printLawZ() {
     for (int z = START_Z; z <= MAX_Z; z += INCREMENT_Z)
         std::cout << z << "\t";
     std::cout << "\np(Z=z)";
-    for (int z = 2; z != 11; z += 1) {
+    for (int z = 2; z < 11; ++z) {
         std::cout << "\t";
         double sum = 0.0;
-        double zLaw = 0.0;
-        for (int y = 1; y != 6; ++y) {
+        double zLaw;
+        for (int y = 1; y < 6; ++y) {
             for (int x = 1; x < 6; ++x) {
                 zLaw = computeProbability(x * 10, y * 10);
                 if (x + y == z && y < 6)
@@ -95,4 +95,5 @@ void Unsold::printLawZ() {
 
 void Unsold::printExpectedValuesVariances() {
 
+    std::cout << "\n" << std::setfill('-') << std::setw(NB_DASHES) << "\n";
 }
