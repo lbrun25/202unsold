@@ -23,7 +23,7 @@ Unsold::~Unsold() = default;
 
 // Methods
 
-void printFirstRowProbability()
+void printFirstRowJointLaw()
 {
     std::cout << std::setfill('-') << std::setw(NB_DASHES) << "\n";
     std::cout << "\t";
@@ -37,13 +37,13 @@ double Unsold::computeProbability(int x, int y) {
     return res;
 }
 
-void Unsold::printProbability() {
+void Unsold::printJointLaw() {
     double yLaw;
     double arrProbs[NB_PRICES][NB_PRICES];
     int i = 0;
     int j = 0;
 
-    printFirstRowProbability();
+    printFirstRowJointLaw();
     for (int y = INCREMENT_PRICE; y <= MAX_PRICE; y += INCREMENT_PRICE) {
         std::cout << "Y=" << y << "\t";
         yLaw = 0.0;
@@ -70,4 +70,29 @@ void Unsold::printProbability() {
     }
     std::cout << std::fixed << std::setprecision(PRECISION) << yLaw << std::endl;
     std::cout << std::setfill('-') << std::setw(NB_DASHES) << "\n";
+}
+
+void Unsold::printLawZ() {
+    std::cout << "z\t";
+    for (int z = START_Z; z <= MAX_Z; z += INCREMENT_Z)
+        std::cout << z << "\t";
+    std::cout << "\np(Z=z)";
+    for (int z = 2; z != 11; z += 1) {
+        std::cout << "\t";
+        double sum = 0.0;
+        double zLaw = 0.0;
+        for (int y = 1; y != 6; ++y) {
+            for (int x = 1; x < 6; ++x) {
+                zLaw = computeProbability(x * 10, y * 10);
+                if (x + y == z && y < 6)
+                    sum += zLaw;
+            }
+        }
+        std::cout << std::fixed << std::setprecision(PRECISION) << sum;
+    }
+    std::cout << "\n" << std::setfill('-') << std::setw(NB_DASHES) << "\n";
+}
+
+void Unsold::printExpectedValuesVariances() {
+
 }

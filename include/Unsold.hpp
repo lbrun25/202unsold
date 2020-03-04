@@ -22,6 +22,9 @@
 #define MAX_PRICE 50
 #define NB_PRICES 5
 #define PRECISION 3
+#define START_Z 20
+#define MAX_Z 100
+#define INCREMENT_Z 10
 #endif
 
 class Unsold {
@@ -41,7 +44,9 @@ public:
     ~Unsold();
 
     // Methods
-    void printProbability();
+    void printJointLaw();
+    void printLawZ();
+    void printExpectedValuesVariances();
 
 };
 

@@ -16,6 +16,8 @@ int main(int argc, char **argv)
     if (!parser.check_argc() || !parser.check_argv())
         return 84;
     Unsold unsold(parser.getA(), parser.getB());
-    unsold.printProbability();
+    unsold.printJointLaw();
+    unsold.printLawZ();
+    unsold.printExpectedValuesVariances();
     return 0;
 }
