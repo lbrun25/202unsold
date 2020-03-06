@@ -22,9 +22,11 @@
 #define MAX_PRICE 50
 #define NB_PRICES 5
 #define PRECISION 3
+#define PRECISION_EXPECTED_VARIANCE 1
 #define START_Z 20
 #define MAX_Z 100
 #define INCREMENT_Z 10
+#define COEFF 10
 #endif
 
 class Unsold {
@@ -33,10 +35,28 @@ private:
     // Properties
     int const _a;
     int const _b;
-    std::vector<int> suitPrices;
+    std::vector<int> _suitPrices;
+    double _expectedX;
+    double _varianceX;
+    double _expectedY;
+    double _varianceY;
+    double _expectedZ;
+    double _varianceZ;
+    std::vector<double> _yLaws;
+    std::vector<double> _xLaws;
 
     // Methods
     double computeProbability(int x, int y);
+    void computeExpectedValues();
+    void computeVariances();
+
+    // Getters
+    double const &getExpectedX();
+    double const &getVarianceX();
+    double const &getExpectedY();
+    double const &getVarianceY();
+    double const &getExpectedZ();
+    double const &getVarianceZ();
 
 public:
     // Life cycle
