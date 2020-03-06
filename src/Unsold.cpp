@@ -105,9 +105,8 @@ void Unsold::computeExpectedValues() {
 
 void Unsold::computeVariances() {
     for (int i = 0; i < NB_PRICES; ++i) {
-        // Do pow 2
-        this->_varianceX += ((i + 1) * COEFF - this->getExpectedX()) * ((i + 1) * COEFF - this->getExpectedX()) * this->_xLaws.at(i);
-        this->_varianceY += ((i + 1) * COEFF - this->getExpectedY()) * ((i + 1) * COEFF - this->getExpectedY()) * this->_yLaws.at(i);
+        this->_varianceX += pow((i + 1) * COEFF - this->getExpectedX(), 2) * this->_xLaws.at(i);
+        this->_varianceY += pow((i + 1) * COEFF - this->getExpectedY(), 2) * this->_yLaws.at(i);
     }
     this->_varianceZ = this->_varianceX + this->_varianceY;
 }

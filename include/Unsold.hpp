@@ -12,6 +12,7 @@
 #include <iostream>
 #include <iomanip>
 #include <numeric>
+#include <math.h>
 
 #ifndef NB_DASHES_
 #define NB_DASHES 100
